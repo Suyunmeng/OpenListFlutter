@@ -109,3 +109,55 @@ jobs:
         with:
           name: "OpenListFlutter-v${{ env.ver_name }}_x86_64"
           path: "${{ env.output }}/*64.apk"
+
+  ios:
+    runs-on: macos-latest
+    env:
+      output: "${{ github.workspace }}/build/ios/iphoneos"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Download OpenList Source Code
+        run: |
+          cd $GITHUB_WORKSPACE/openlist-lib/scripts
+          chmod +x *.sh
+          ./init_openlist.sh
+          ./init_web.sh
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version: 1.22
+          cache-dependency-path: ${{ github.workspace }}/openlist-lib/openlist/go.sum
+
+      - name: Build OpenList for iOS
+        run: |
+          cd $GITHUB_WORKSPACE/openlist-lib/scripts
+          chmod +x *.sh
+          ./init_gomobile.sh
+          # Note: iOS binding would need to be implemented separately
+          # This is a placeholder for iOS-specific OpenList binding
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.6'
+
+      - name: Install iOS dependencies
+        run: |
+          cd ios
+          pod install
+
+      - name: Build iOS app (no codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Init APP Version Name
+        run: |
+          echo "ver_name=$(grep -A 1 'CFBundleShortVersionString' ios/Runner/Info.plist | tail -1 | sed 's/.*<string>\(.*\)<\/string>.*/\1/')" >> $GITHUB_ENV
+
+      - name: Upload iOS App To Artifact
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "OpenListFlutter-iOS-v${{ env.ver_name }}"
+          path: "${{ env.output }}/Runner.app"

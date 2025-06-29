@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'OpenListFlutter',
+      title: 'OpenList',
       themeMode: ThemeMode.system,
       theme: ThemeData(
         useMaterial3: true,
