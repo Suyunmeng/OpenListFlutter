@@ -1,4 +1,4 @@
-package alistlib
+package openlistlib
 
 import (
 	"github.com/OpenListTeam/OpenList/cmd"
