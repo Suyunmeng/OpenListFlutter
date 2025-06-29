@@ -2,8 +2,8 @@
 [![Test](https://github.com/Suyunmeng/OpenListFlutter/actions/workflows/build.yaml/badge.svg)](https://github.com/Suyunmeng/OpenListFlutter/actions/workflows/build.yaml)
 [![CheckOpenList](https://github.com/Suyunmeng/OpenListFlutter/actions/workflows/sync_openlist.yaml/badge.svg)](https://github.com/Suyunmeng/OpenListFlutter/actions/workflows/sync_openlist.yaml)
 
-#### 🚩　[FRP](https://github.com/fatedier/frp) 安卓版本：https://github.com/openlistteam/FrpAndroid
-#### 🚩　[AListAndroid](https://github.com/openlistteam/AlistAndroid) Compose版本，已停更
+#### 🚩　[FRP](https://github.com/fatedier/frp) 安卓版本：https://github.com/jing332/FrpAndroid
+#### 🚩　[AListAndroid](https://github.com/jing332/AlistAndroid) Compose版本，已停更
 
 # OpenListFlutter
 
