@@ -1,6 +1,6 @@
 package com.github.openlistteam.openlistflutter.model.openlist
 
-import openlistlib.OpenListlib
+import openlistlib.Openlistlib
 import openlistlib.Event
 import openlistlib.LogCallback
 import android.annotation.SuppressLint
@@ -28,9 +28,9 @@ object OpenList : Event, LogCallback {
 
     fun init() {
         runCatching {
-            OpenListlib.setConfigData(dataDir)
-            OpenListlib.setConfigLogStd(true)
-            OpenListlib.init(this, this)
+            Openlistlib.setConfigData(dataDir)
+            Openlistlib.setConfigLogStd(true)
+            Openlistlib.init(this, this)
         }.onFailure {
             Log.e(TAG, "init:", it)
         }
@@ -72,22 +72,22 @@ object OpenList : Event, LogCallback {
     }
 
     fun isRunning(): Boolean {
-        return OpenListlib.isRunning("")
+        return Openlistlib.isRunning("")
     }
 
     fun setAdminPassword(pwd: String) {
         if (!isRunning()) init()
 
         Log.d(TAG, "setAdminPassword: $dataDir")
-        OpenListlib.setConfigData(dataDir)
-        OpenListlib.setAdminPassword(pwd)
+        Openlistlib.setConfigData(dataDir)
+        Openlistlib.setAdminPassword(pwd)
     }
 
 
     fun shutdown() {
         Log.d(TAG, "shutdown")
         runCatching {
-            OpenListlib.shutdown(5000)
+            Openlistlib.shutdown(5000)
         }.onFailure {
             context.longToast(R.string.shutdown_failed)
         }
@@ -97,7 +97,7 @@ object OpenList : Event, LogCallback {
     fun startup() {
         Log.d(TAG, "startup: $dataDir")
         init()
-        OpenListlib.start()
+        Openlistlib.start()
     }
 
     fun getHttpPort(): Int {
