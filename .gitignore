@@ -51,8 +51,8 @@ local.properties
 *.zip
 *.so
 
-#openlist-lib
-#!openlist-lib/openlistlib
-#!openlist-lib/scripts
+openlist-lib
+!openlist-lib/openlistlib
+!openlist-lib/scripts
 
 
