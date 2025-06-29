@@ -1,43 +1,43 @@
-package com.github.jing332.alistflutter.bridge
+package com.github.openlistteam.openlistflutter.bridge
 
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import com.github.jing332.alistflutter.AListService
-import com.github.jing332.alistflutter.BuildConfig
-import com.github.jing332.alistflutter.R
-import com.github.jing332.alistflutter.SwitchServerActivity
-import com.github.jing332.alistflutter.model.alist.AList
-import com.github.jing332.alistflutter.utils.MyTools
-import com.github.jing332.alistflutter.utils.ToastUtils.longToast
-import com.github.jing332.alistflutter.utils.ToastUtils.toast
-import com.github.jing332.pigeon.GeneratedApi
+import com.github.openlistteam.openlistflutter.OpenListService
+import com.github.openlistteam.openlistflutter.BuildConfig
+import com.github.openlistteam.openlistflutter.R
+import com.github.openlistteam.openlistflutter.SwitchServerActivity
+import com.github.openlistteam.openlistflutter.model.openlist.OpenList
+import com.github.openlistteam.openlistflutter.utils.MyTools
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.longToast
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.toast
+import com.github.openlistteam.pigeon.GeneratedApi
 
 class AndroidBridge(private val context: Context) : GeneratedApi.Android {
     override fun addShortcut() {
         MyTools.addShortcut(
             context,
             context.getString(R.string.app_switch),
-            "alist_flutter_switch",
-            R.drawable.alist_switch,
+            "openlist_flutter_switch",
+            R.drawable.openlist_switch,
             Intent(context, SwitchServerActivity::class.java)
         )
     }
 
     override fun startService() {
-        context.startService(Intent(context, AListService::class.java))
+        context.startService(Intent(context, OpenListService::class.java))
     }
 
     override fun setAdminPwd(pwd: String) {
-        AList.setAdminPassword(pwd)
+        OpenList.setAdminPassword(pwd)
     }
 
-    override fun getAListHttpPort(): Long {
-        return AList.getHttpPort().toLong()
+    override fun getOpenListHttpPort(): Long {
+        return OpenList.getHttpPort().toLong()
     }
 
-    override fun isRunning() = AListService.isRunning
+    override fun isRunning() = OpenListService.isRunning
 
 
-    override fun getAListVersion() = BuildConfig.ALIST_VERSION
+    override fun getOpenListVersion() = BuildConfig.OPENLIST_VERSION
 }

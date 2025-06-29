@@ -54,7 +54,7 @@ int get_local_ip_using_ifconf(char *str_ip)
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_github_jing332_utils_NativeLib_getLocalIp(
+Java_com_github_openlistteam_utils_NativeLib_getLocalIp(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";

@@ -1,13 +1,13 @@
 /*
-package com.github.jing332.alistflutter.data
+package com.github.openlistteam.openlistflutter.data
 
 import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.github.jing332.alistandroid.data.dao.ServerLogDao
-import com.github.jing332.alistflutter.data.entities.ServerLog
-import com.github.jing332.alistflutter.App.Companion.app
+import com.github.openlistteam.openlistandroid.data.dao.ServerLogDao
+import com.github.openlistteam.openlistflutter.data.entities.ServerLog
+import com.github.openlistteam.openlistflutter.App.Companion.app
 
 val appDb by lazy { AppDatabase.create() }
 
@@ -25,7 +25,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun create() = Room.databaseBuilder(
             app,
             AppDatabase::class.java,
-            "alistandroid.db"
+            "openlistandroid.db"
         )
             .allowMainThreadQueries()
             .build()

@@ -1,12 +1,12 @@
-package com.github.jing332.alistflutter.bridge
+package com.github.openlistteam.openlistflutter.bridge
 
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import com.github.jing332.alistflutter.BuildConfig
-import com.github.jing332.alistflutter.utils.ToastUtils.longToast
-import com.github.jing332.alistflutter.utils.ToastUtils.toast
-import com.github.jing332.pigeon.GeneratedApi
+import com.github.openlistteam.openlistflutter.BuildConfig
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.longToast
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.toast
+import com.github.openlistteam.pigeon.GeneratedApi
 
 class CommonBridge(private val context: Context) : GeneratedApi.NativeCommon {
     override fun startActivityFromUri(intentUri: String): Boolean {

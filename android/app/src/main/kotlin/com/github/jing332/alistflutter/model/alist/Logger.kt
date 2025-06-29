@@ -1,4 +1,4 @@
-package com.github.jing332.alistflutter.model.alist
+package com.github.openlistteam.openlistflutter.model.openlist
 
 object Logger {
     private var listeners = mutableListOf<Listener>()

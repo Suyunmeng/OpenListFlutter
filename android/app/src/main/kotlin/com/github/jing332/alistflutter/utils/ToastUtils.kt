@@ -1,4 +1,4 @@
-package com.github.jing332.alistflutter.utils
+package com.github.openlistteam.openlistflutter.utils
 
 import android.content.Context
 import android.widget.Toast

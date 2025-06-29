@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../alistlib || exit
+cd ../openlistlib || exit
 if [ "$1" == "debug" ]; then
   gomobile bind -ldflags "-s -w" -v -androidapi 19 -target="android/arm64"
 else

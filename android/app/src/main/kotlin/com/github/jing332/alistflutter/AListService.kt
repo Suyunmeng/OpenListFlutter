@@ -1,6 +1,6 @@
-package com.github.jing332.alistflutter
+package com.github.openlistteam.openlistflutter
 
-import alistlib.Alistlib
+import openlistlib.OpenListlib
 import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
@@ -15,28 +15,28 @@ import android.os.Build
 import android.os.IBinder
 import android.os.PowerManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.github.jing332.alistflutter.config.AppConfig
-import com.github.jing332.alistflutter.model.alist.AList
-import com.github.jing332.alistflutter.utils.AndroidUtils.registerReceiverCompat
-import com.github.jing332.alistflutter.utils.ClipboardUtils
-import com.github.jing332.alistflutter.utils.ToastUtils.toast
+import com.github.openlistteam.openlistflutter.config.AppConfig
+import com.github.openlistteam.openlistflutter.model.openlist.OpenList
+import com.github.openlistteam.openlistflutter.utils.AndroidUtils.registerReceiverCompat
+import com.github.openlistteam.openlistflutter.utils.ClipboardUtils
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import splitties.systemservices.powerManager
 
-class AListService : Service(), AList.Listener {
+class OpenListService : Service(), OpenList.Listener {
     companion object {
-        const val TAG = "AlistService"
+        const val TAG = "OpenListService"
         const val ACTION_SHUTDOWN =
-            "com.github.jing332.alistandroid.service.AlistService.ACTION_SHUTDOWN"
+            "com.github.openlistteam.openlistandroid.service.OpenListService.ACTION_SHUTDOWN"
 
         const val ACTION_COPY_ADDRESS =
-            "com.github.jing332.alistandroid.service.AlistService.ACTION_COPY_ADDRESS"
+            "com.github.openlistteam.openlistandroid.service.OpenListService.ACTION_COPY_ADDRESS"
 
         const val ACTION_STATUS_CHANGED =
-            "com.github.jing332.alistandroid.service.AlistService.ACTION_STATUS_CHANGED"
+            "com.github.openlistteam.openlistandroid.service.OpenListService.ACTION_STATUS_CHANGED"
 
-        const val NOTIFICATION_CHAN_ID = "alist_server"
+        const val NOTIFICATION_CHAN_ID = "openlist_server"
         const val FOREGROUND_ID = 5224
 
         var isRunning: Boolean = false
@@ -74,7 +74,7 @@ class AListService : Service(), AList.Listener {
         if (AppConfig.isWakeLockEnabled) {
             mWakeLock = powerManager.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK,
-                "alist::service"
+                "openlist::service"
             )
             mWakeLock?.acquire()
         }
@@ -90,7 +90,7 @@ class AListService : Service(), AList.Listener {
             ACTION_COPY_ADDRESS
         )
 
-        AList.addListener(this)
+        OpenList.addListener(this)
     }
 
 
@@ -106,11 +106,11 @@ class AListService : Service(), AList.Listener {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver)
         unregisterReceiver(mNotificationReceiver)
 
-        AList.removeListener(this)
+        OpenList.removeListener(this)
     }
 
     override fun onShutdown(type: String) {
-        if (!AList.isRunning()) {
+        if (!OpenList.isRunning()) {
             isRunning = false
             notifyStatusChanged()
         }
@@ -118,11 +118,11 @@ class AListService : Service(), AList.Listener {
 
     private fun startOrShutdown() {
         if (isRunning) {
-            AList.shutdown()
+            OpenList.shutdown()
         } else {
             toast(getString(R.string.starting))
             isRunning = true
-            AList.startup()
+            OpenList.startup()
             notifyStatusChanged()
         }
     }
@@ -144,7 +144,7 @@ class AListService : Service(), AList.Listener {
         }
     }
 
-    private fun localAddress(): String = Alistlib.getOutboundIPString()
+    private fun localAddress(): String = OpenListlib.getOutboundIPString()
 
 
     @Suppress("DEPRECATION")
@@ -180,13 +180,13 @@ class AListService : Service(), AList.Listener {
                 pendingIntentFlags
             )
 
-//        val color = com.github.jing332.alistandroid.ui.theme.seed.androidColor
+//        val color = com.github.openlistteam.openlistandroid.ui.theme.seed.androidColor
         val smallIconRes: Int
         val builder = Notification.Builder(applicationContext)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {/*Android 8.0+ 要求必须设置通知信道*/
             val chan = NotificationChannel(
                 NOTIFICATION_CHAN_ID,
-                getString(R.string.alist_server),
+                getString(R.string.openlist_server),
                 NotificationManager.IMPORTANCE_NONE
             )
 //            chan.lightColor = color
@@ -205,7 +205,7 @@ class AListService : Service(), AList.Listener {
         }
         val notification = builder
 //            .setColor(color)
-            .setContentTitle(getString(R.string.alist_server_running))
+            .setContentTitle(getString(R.string.openlist_server_running))
             .setContentText(localAddress())
             .setSmallIcon(smallIconRes)
             .setContentIntent(pendingIntent)
@@ -225,7 +225,7 @@ class AListService : Service(), AList.Listener {
                 }
 
                 ACTION_COPY_ADDRESS -> {
-                    ClipboardUtils.copyText("AList", localAddress())
+                    ClipboardUtils.copyText("OpenList", localAddress())
                     toast(R.string.address_copied)
                 }
             }

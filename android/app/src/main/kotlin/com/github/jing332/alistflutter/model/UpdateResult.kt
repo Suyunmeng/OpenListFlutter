@@ -1,4 +1,4 @@
-package com.github.jing332.alistandroid.model
+package com.github.openlistteam.openlistandroid.model
 
 data class UpdateResult(
     val version: String = "",

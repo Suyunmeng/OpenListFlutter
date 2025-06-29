@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `AList`
+  /// `OpenList`
   String get appName {
     return Intl.message(
-      'AList',
+      'OpenList',
       name: 'appName',
       desc: '',
       args: [],
@@ -220,10 +220,10 @@ class S {
     );
   }
 
-  /// `在开机后自动启动AList服务。（请确保授予自启动权限）`
+  /// `在开机后自动启动OpenList服务。（请确保授予自启动权限）`
   String get bootAutoStartServiceDesc {
     return Intl.message(
-      '在开机后自动启动AList服务。（请确保授予自启动权限）',
+      '在开机后自动启动OpenList服务。（请确保授予自启动权限）',
       name: 'bootAutoStartServiceDesc',
       desc: '',
       args: [],

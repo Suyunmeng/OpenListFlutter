@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:alist_flutter/contant/native_bridge.dart';
+import 'package:openlist_flutter/contant/native_bridge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,12 +20,12 @@ class AppAboutDialog extends StatefulWidget {
 }
 
 class _AppAboutDialogState extends State<AppAboutDialog> {
-  String _alistVersion = "";
+  String _openlistVersion = "";
   String _version = "";
   int _versionCode = 0;
 
   Future<Void?> updateVer() async {
-    _alistVersion = await Android().getAListVersion();
+    _openlistVersion = await Android().getOpenListVersion();
     _version = await NativeBridge.common.getVersionName();
     _versionCode = await NativeBridge.common.getVersionCode();
     return null;
@@ -40,34 +40,34 @@ class _AppAboutDialogState extends State<AppAboutDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final alistUrl =
-        "https://github.com/alist-org/alist/releases/tag/$_alistVersion";
+    final openlistUrl =
+        "https://github.com/OpenListTeam/OpenList/releases/tag/$_openlistVersion";
     final appUrl =
-        "https://github.com/jing332/AListFlutter/releases/tag/$_version";
+        "https://github.com/Suyunmeng/OpenListFlutter/releases/tag/$_version";
     return AboutDialog(
       applicationName: S.of(context).appName,
       applicationVersion: '$_version ($_versionCode)',
       applicationIcon: SvgPicture.asset(
-        "assets/alist.svg",
+        "assets/openlist.svg",
         width: 48,
         height: 48,
       ),
       children: [
         TextButton(
           onPressed: () {
-            IntentUtils.getUrlIntent(alistUrl).launchChooser("AList");
+            IntentUtils.getUrlIntent(openlistUrl).launchChooser("OpenList");
           },
           onLongPress: () {
-            Clipboard.setData(ClipboardData(text: alistUrl));
+            Clipboard.setData(ClipboardData(text: openlistUrl));
             Get.showSnackbar(GetSnackBar(
                 message: S.of(context).copiedToClipboard,
                 duration: const Duration(seconds: 1)));
           },
-          child: const Text("AList"),
+          child: const Text("OpenList"),
         ),
         TextButton(
             onPressed: () {
-              IntentUtils.getUrlIntent(appUrl).launchChooser("AListFlutter");
+              IntentUtils.getUrlIntent(appUrl).launchChooser("OpenListFlutter");
             },
             onLongPress: () {
               Clipboard.setData(ClipboardData(text: appUrl));
@@ -75,7 +75,7 @@ class _AppAboutDialogState extends State<AppAboutDialog> {
                   message: S.of(context).copiedToClipboard,
                   duration: const Duration(seconds: 1)));
             },
-            child: const Text("AListFlutter")),
+            child: const Text("OpenListFlutter")),
       ],
     );
   }

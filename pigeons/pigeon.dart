@@ -52,11 +52,11 @@ abstract class Android {
 
   void setAdminPwd(String pwd);
 
-  int getAListHttpPort();
+  int getOpenListHttpPort();
 
   bool isRunning();
 
-  String getAListVersion();
+  String getOpenListVersion();
 }
 
 @FlutterApi()

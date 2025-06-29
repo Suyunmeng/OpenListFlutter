@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GIT_REPO="https://github.com/alist-org/alist.git"
+GIT_REPO="https://github.com/OpenListTeam/OpenList.git"
 
 function to_int() {
     echo $(echo "$1" | grep -oE '[0-9]+' | tr -d '\n')
@@ -29,10 +29,10 @@ do
 done
 
 LATEST_VER_INT=$(to_int "$LATEST_VER")
-echo "Latest AList version $LATEST_VER ${LATEST_VER_INT}"
+echo "Latest OpenList version $LATEST_VER ${LATEST_VER_INT}"
 
-echo "alist_version=$LATEST_VER" >> "$GITHUB_ENV"
-# VERSION_FILE="$GITHUB_WORKSPACE/alist_version.txt"
+echo "openlist_version=$LATEST_VER" >> "$GITHUB_ENV"
+# VERSION_FILE="$GITHUB_WORKSPACE/openlist_version.txt"
 
 VER=$(cat "$VERSION_FILE")
 
@@ -43,13 +43,13 @@ fi
 
 VER_INT=$(to_int $VER)
 
-echo "Current AList version: $VER ${VER_INT}"
+echo "Current OpenList version: $VER ${VER_INT}"
 
 
 if [ "$VER_INT" -ge "$LATEST_VER_INT" ]; then
     echo "Current >= Latest"
-    echo "alist_update=0" >> "$GITHUB_ENV"
+    echo "openlist_update=0" >> "$GITHUB_ENV"
 else
     echo "Current < Latest"
-    echo "alist_update=1" >> "$GITHUB_ENV"
+    echo "openlist_update=1" >> "$GITHUB_ENV"
 fi

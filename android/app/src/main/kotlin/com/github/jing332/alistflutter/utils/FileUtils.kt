@@ -1,4 +1,4 @@
-package com.github.jing332.alistflutter.utils
+package com.github.openlistteam.openlistflutter.utils
 
 import java.io.File
 import java.io.InputStream

@@ -1,10 +1,10 @@
-package com.github.jing332.alistflutter.model.alist
+package com.github.openlistteam.openlistflutter.model.openlist
 
 import android.os.FileObserver
 import android.util.Log
-import com.github.jing332.alistflutter.app
-import com.github.jing332.alistflutter.constant.AppConst
-import com.github.jing332.alistflutter.utils.ToastUtils.longToast
+import com.github.openlistteam.openlistflutter.app
+import com.github.openlistteam.openlistflutter.constant.AppConst
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.longToast
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.coroutineScope
@@ -18,14 +18,14 @@ import kotlinx.serialization.json.encodeToStream
 import java.io.File
 
 @Suppress("DEPRECATION")
-object AListConfigManager {
-    const val TAG = "AListConfigManager"
+object OpenListConfigManager {
+    const val TAG = "OpenListConfigManager"
 
     val context
         get() = app
 
-    suspend fun flowConfig(): Flow<AListConfig> = channelFlow {
-        val obs = object : FileObserver(AList.configPath) {
+    suspend fun flowConfig(): Flow<OpenListConfig> = channelFlow {
+        val obs = object : FileObserver(OpenList.configPath) {
             override fun onEvent(event: Int, p1: String?) {
                 if (listOf(CLOSE_NOWRITE, CLOSE_WRITE).contains(event))
                     runBlocking {
@@ -49,25 +49,25 @@ object AListConfigManager {
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    fun config(): AListConfig {
+    fun config(): OpenListConfig {
         try {
-            File(AList.configPath).inputStream().use {
-                return AppConst.json.decodeFromStream<AListConfig>(it)
+            File(OpenList.configPath).inputStream().use {
+                return AppConst.json.decodeFromStream<OpenListConfig>(it)
             }
         } catch (e: Exception) {
-            AList.context.longToast("读取 config.json 失败：\n$e")
-            return AListConfig()
+            OpenList.context.longToast("读取 config.json 失败：\n$e")
+            return OpenListConfig()
         }
     }
 
     @OptIn(ExperimentalSerializationApi::class)
-    fun update(cfg: AListConfig) {
+    fun update(cfg: OpenListConfig) {
         try {
-            File(AList.configPath).outputStream().use {
+            File(OpenList.configPath).outputStream().use {
                 AppConst.json.encodeToStream(cfg, it)
             }
         } catch (e: Exception) {
-            AList.context.longToast("更新 config.json 失败：\n$e")
+            OpenList.context.longToast("更新 config.json 失败：\n$e")
         }
     }
 

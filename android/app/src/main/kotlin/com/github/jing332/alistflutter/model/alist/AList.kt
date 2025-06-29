@@ -1,21 +1,21 @@
-package com.github.jing332.alistflutter.model.alist
+package com.github.openlistteam.openlistflutter.model.openlist
 
-import alistlib.Alistlib
-import alistlib.Event
-import alistlib.LogCallback
+import openlistlib.OpenListlib
+import openlistlib.Event
+import openlistlib.LogCallback
 import android.annotation.SuppressLint
 import android.util.Log
-import com.github.jing332.alistflutter.R
-import com.github.jing332.alistflutter.app
-import com.github.jing332.alistflutter.config.AppConfig
-import com.github.jing332.alistflutter.constant.LogLevel
-import com.github.jing332.alistflutter.utils.ToastUtils.longToast
+import com.github.openlistteam.openlistflutter.R
+import com.github.openlistteam.openlistflutter.app
+import com.github.openlistteam.openlistflutter.config.AppConfig
+import com.github.openlistteam.openlistflutter.constant.LogLevel
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.longToast
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-object AList : Event, LogCallback {
-    const val TAG = "AList"
+object OpenList : Event, LogCallback {
+    const val TAG = "OpenList"
 
     val context = app
 
@@ -28,9 +28,9 @@ object AList : Event, LogCallback {
 
     fun init() {
         runCatching {
-            Alistlib.setConfigData(dataDir)
-            Alistlib.setConfigLogStd(true)
-            Alistlib.init(this, this)
+            OpenListlib.setConfigData(dataDir)
+            OpenListlib.setConfigLogStd(true)
+            OpenListlib.init(this, this)
         }.onFailure {
             Log.e(TAG, "init:", it)
         }
@@ -72,22 +72,22 @@ object AList : Event, LogCallback {
     }
 
     fun isRunning(): Boolean {
-        return Alistlib.isRunning("")
+        return OpenListlib.isRunning("")
     }
 
     fun setAdminPassword(pwd: String) {
         if (!isRunning()) init()
 
         Log.d(TAG, "setAdminPassword: $dataDir")
-        Alistlib.setConfigData(dataDir)
-        Alistlib.setAdminPassword(pwd)
+        OpenListlib.setConfigData(dataDir)
+        OpenListlib.setAdminPassword(pwd)
     }
 
 
     fun shutdown() {
         Log.d(TAG, "shutdown")
         runCatching {
-            Alistlib.shutdown(5000)
+            OpenListlib.shutdown(5000)
         }.onFailure {
             context.longToast(R.string.shutdown_failed)
         }
@@ -97,10 +97,10 @@ object AList : Event, LogCallback {
     fun startup() {
         Log.d(TAG, "startup: $dataDir")
         init()
-        Alistlib.start()
+        OpenListlib.start()
     }
 
     fun getHttpPort(): Int {
-        return AListConfigManager.config().scheme.httpPort
+        return OpenListConfigManager.config().scheme.httpPort
     }
 }

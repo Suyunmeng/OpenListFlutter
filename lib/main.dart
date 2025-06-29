@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import 'package:alist_flutter/generated/l10n.dart';
-import 'package:alist_flutter/generated_api.dart';
-import 'package:alist_flutter/pages/alist/alist.dart';
-import 'package:alist_flutter/pages/app_update_dialog.dart';
-import 'package:alist_flutter/pages/settings/settings.dart';
-import 'package:alist_flutter/pages/web/web.dart';
+import 'package:openlist_flutter/generated/l10n.dart';
+import 'package:openlist_flutter/generated_api.dart';
+import 'package:openlist_flutter/pages/openlist/openlist.dart';
+import 'package:openlist_flutter/pages/app_update_dialog.dart';
+import 'package:openlist_flutter/pages/settings/settings.dart';
+import 'package:openlist_flutter/pages/web/web.dart';
 import 'package:fade_indexed_stack/fade_indexed_stack.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'AListFlutter',
+      title: 'OpenListFlutter',
       themeMode: ThemeMode.system,
       theme: ThemeData(
         useMaterial3: true,
@@ -88,7 +88,7 @@ class MyHomePage extends StatelessWidget {
             index: controller.selectedIndex.value,
             children: [
               WebScreen(key: webGlobalKey),
-              const AListScreen(),
+              const OpenListScreen(),
               const SettingsScreen()
             ],
           ),
@@ -101,7 +101,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   NavigationDestination(
                     icon: SvgPicture.asset(
-                      "assets/alist.svg",
+                      "assets/openlist.svg",
                       color: Theme.of(context).hintColor,
                       width: 32,
                       height: 32,

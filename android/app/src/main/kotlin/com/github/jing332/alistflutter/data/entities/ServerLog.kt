@@ -1,6 +1,6 @@
-package com.github.jing332.alistflutter.data.entities
+package com.github.openlistteam.openlistflutter.data.entities
 
-import com.github.jing332.alistflutter.constant.LogLevel
+import com.github.openlistteam.openlistflutter.constant.LogLevel
 
 data class ServerLog(
 

@@ -1,7 +1,7 @@
-package com.github.jing332.alistflutter.constant
+package com.github.openlistteam.openlistflutter.constant
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.github.jing332.alistflutter.app
+import com.github.openlistteam.openlistflutter.app
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 

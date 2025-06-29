@@ -1,4 +1,4 @@
-import 'package:alist_flutter/generated_api.dart';
+import 'package:openlist_flutter/generated_api.dart';
 
 class NativeBridge {
   static NativeCommon common = NativeCommon();

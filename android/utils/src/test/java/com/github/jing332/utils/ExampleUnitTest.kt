@@ -1,4 +1,4 @@
-package com.github.jing332.utils
+package com.github.openlistteam.utils
 
 import org.junit.Test
 

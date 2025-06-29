@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace "com.github.jing332.utils"
+    namespace "com.github.openlistteam.utils"
     compileSdk 34
 
     defaultConfig {

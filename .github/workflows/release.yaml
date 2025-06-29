@@ -18,17 +18,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Download AList Source Code
+      - name: Download OpenList Source Code
         run: |
-          cd $GITHUB_WORKSPACE/alist-lib/scripts
+          cd $GITHUB_WORKSPACE/openlist-lib/scripts
           chmod +x *.sh
-          ./init_alist.sh
+          ./init_openlist.sh
           ./init_web.sh
 
       - uses: actions/setup-go@v5
         with:
           go-version: 1.22
-          cache-dependency-path: ${{ github.workspace }}/alist-lib/alist/go.sum
+          cache-dependency-path: ${{ github.workspace }}/openlist-lib/openlist/go.sum
 
       - uses: actions/setup-java@v4
         with:
@@ -43,9 +43,9 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
 
-      - name: Build AList
+      - name: Build OpenList
         run: |
-            cd $GITHUB_WORKSPACE/alist-lib/scripts
+            cd $GITHUB_WORKSPACE/openlist-lib/scripts
             chmod +x *.sh
             ./init_gomobile.sh
             ./gobind.sh
@@ -55,7 +55,7 @@ jobs:
       - name: Upload AAR
         uses: actions/upload-artifact@v4
         with:
-          name: "AList"
+          name: "OpenList"
           path: "${{ github.workspace }}/android/app/libs/*.aar"
 
       - name: Init Signature

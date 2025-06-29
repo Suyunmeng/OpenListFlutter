@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("关于"),
-        "appName": MessageLookupByLibrary.simpleMessage("AList"),
+        "appName": MessageLookupByLibrary.simpleMessage("OpenList"),
         "autoCheckForUpdates": MessageLookupByLibrary.simpleMessage("自动检查更新"),
         "autoCheckForUpdatesDesc":
             MessageLookupByLibrary.simpleMessage("启动时自动检查更新"),
@@ -32,7 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("打开主界面时的首页"),
         "bootAutoStartService": MessageLookupByLibrary.simpleMessage("开机自启动服务"),
         "bootAutoStartServiceDesc": MessageLookupByLibrary.simpleMessage(
-            "在开机后自动启动AList服务。（请确保授予自启动权限）"),
+            "在开机后自动启动OpenList服务。（请确保授予自启动权限）"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "checkForUpdates": MessageLookupByLibrary.simpleMessage("检查更新"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),

@@ -1,7 +1,7 @@
-package com.github.jing332.alistflutter
+package com.github.openlistteam.openlistflutter
 
 import android.app.Application
-import com.github.jing332.alistflutter.utils.ToastUtils.longToast
+import com.github.openlistteam.openlistflutter.utils.ToastUtils.longToast
 import io.flutter.app.FlutterApplication
 
 val app by lazy { App.app }

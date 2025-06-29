@@ -27,10 +27,10 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name="com.github.jing332.alistflutter.App"
+        android:name="com.github.openlistteam.openlistflutter.App"
         android:icon="@mipmap/ic_launcher"
 
-        android:label="AList"
+        android:label="OpenList"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
@@ -43,7 +43,7 @@
             android:name=".SwitchServerActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity="alist.switch"
+            android:taskAffinity="openlist.switch"
             android:theme="@android:style/Theme.NoDisplay" />
         <activity
             android:name=".MainActivity"
@@ -72,7 +72,7 @@
             android:value="2" />
 
         <service
-            android:name=".AListService"
+            android:name=".OpenListService"
             android:exported="true"
             tools:ignore="ExportedService" />
 

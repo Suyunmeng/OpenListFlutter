@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:alist_flutter/contant/native_bridge.dart';
-import 'package:alist_flutter/generated_api.dart';
-import 'package:alist_flutter/utils/intent_utils.dart';
+import 'package:openlist_flutter/contant/native_bridge.dart';
+import 'package:openlist_flutter/generated_api.dart';
+import 'package:openlist_flutter/utils/intent_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -44,7 +44,7 @@ class WebScreenState extends State<WebScreen> {
   @override
   void initState() {
     Android()
-        .getAListHttpPort()
+        .getOpenListHttpPort()
         .then((port) => {_url = "http://localhost:$port"});
 
     // NativeEvent().addServiceStatusListener((isRunning) {

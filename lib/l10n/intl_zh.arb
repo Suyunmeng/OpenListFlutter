@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "appName": "AList",
+  "appName": "OpenList",
   "desktopShortcut": "桌面快捷方式",
   "setAdminPassword": "设置admin密码",
   "moreOptions": "更多选项",
@@ -17,7 +17,7 @@
   "wakeLock": "唤醒锁",
   "wakeLockDesc": "开启防止锁屏后CPU休眠，保持进程在后台运行。（部分系统可能导致杀后台）",
   "bootAutoStartService": "开机自启动服务",
-  "bootAutoStartServiceDesc": "在开机后自动启动AList服务。（请确保授予自启动权限）",
+  "bootAutoStartServiceDesc": "在开机后自动启动OpenList服务。（请确保授予自启动权限）",
   "webPage": "网页",
   "settings": "设置",
   "selectAppToOpen": "选择应用打开",

@@ -1,7 +1,7 @@
-package com.github.jing332.alistflutter.bridge
+package com.github.openlistteam.openlistflutter.bridge
 
-import com.github.jing332.alistflutter.config.AppConfig
-import com.github.jing332.pigeon.GeneratedApi
+import com.github.openlistteam.openlistflutter.config.AppConfig
+import com.github.openlistteam.pigeon.GeneratedApi
 
 
 object AppConfigBridge : GeneratedApi.AppConfig {

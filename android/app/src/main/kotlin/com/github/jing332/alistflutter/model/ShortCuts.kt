@@ -1,12 +1,12 @@
-package com.github.jing332.alistflutter.model
+package com.github.openlistteam.openlistflutter.model
 
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
-import com.github.jing332.alistflutter.R
-import com.github.jing332.alistflutter.SwitchServerActivity
+import com.github.openlistteam.openlistflutter.R
+import com.github.openlistteam.openlistflutter.SwitchServerActivity
 
 
 object ShortCuts {
@@ -17,12 +17,12 @@ object ShortCuts {
     }
 
 
-    private fun buildAlistSwitchShortCutInfo(context: Context): ShortcutInfoCompat {
+    private fun buildOpenListSwitchShortCutInfo(context: Context): ShortcutInfoCompat {
         val msSwitchIntent = buildIntent<SwitchServerActivity>(context)
-        return ShortcutInfoCompat.Builder(context, "alist_switch")
+        return ShortcutInfoCompat.Builder(context, "openlist_switch")
             .setShortLabel(context.getString(R.string.app_switch))
             .setLongLabel(context.getString(R.string.app_switch))
-            .setIcon(IconCompat.createWithResource(context, R.drawable.alist_switch))
+            .setIcon(IconCompat.createWithResource(context, R.drawable.openlist_switch))
             .setIntent(msSwitchIntent)
             .build()
     }
@@ -31,7 +31,7 @@ object ShortCuts {
     fun buildShortCuts(context: Context) {
         ShortcutManagerCompat.setDynamicShortcuts(
             context, listOf(
-                buildAlistSwitchShortCutInfo(context),
+                buildOpenListSwitchShortCutInfo(context),
             )
         )
     }

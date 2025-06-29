@@ -1,8 +1,8 @@
-package com.github.jing332.alistflutter.config
+package com.github.openlistteam.openlistflutter.config
 
 import com.cioccarellia.ksprefs.KsPrefs
 import com.cioccarellia.ksprefs.dynamic
-import com.github.jing332.alistflutter.app
+import com.github.openlistteam.openlistflutter.app
 
 object AppConfig {
     val prefs by lazy { KsPrefs(app, "app") }

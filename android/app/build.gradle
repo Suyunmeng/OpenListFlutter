@@ -22,10 +22,10 @@ static def releaseTime() {
 def version = "1." + releaseTime()
 def gitCommits = Integer.parseInt('git rev-list HEAD --count'.execute().text.trim())
 
-def alistVersion = rootProject.file("../alist_version").readLines()[0]
+def openlistVersion = rootProject.file("../openlist_version").readLines()[0]
 
 android {
-    namespace "com.github.jing332.alistflutter"
+    namespace "com.github.openlistteam.openlistflutter"
     compileSdkVersion 34
     ndkVersion "25.1.8937393"
 
@@ -40,7 +40,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.github.jing332.alistflutter"
+        applicationId "com.github.openlistteam.openlistflutter"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -54,7 +54,7 @@ android {
             arg("room.expandProjection", "true")
         }
 
-        buildConfigField("String", "ALIST_VERSION", "\"${alistVersion}\"")
+        buildConfigField("String", "OPENLIST_VERSION", "\"${openlistVersion}\"")
     }
 
 
@@ -94,9 +94,9 @@ android {
             //noinspection GrDeprecatedAPIUsage
             def abiName = output.getFilter(com.android.build.OutputFile.ABI)
             if (abiName == null)
-                output.outputFileName = "AListF-v${variant.versionName}.apk"
+                output.outputFileName = "OpenListF-v${variant.versionName}.apk"
             else
-                output.outputFileName = "AListF-v${variant.versionName}_${abiName}.apk"
+                output.outputFileName = "OpenListF-v${variant.versionName}_${abiName}.apk"
         }
     }
 

@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'dart:ffi';
 
-import 'package:alist_flutter/contant/native_bridge.dart';
-import 'package:alist_flutter/generated_api.dart';
-import 'package:alist_flutter/pages/settings/preference_widgets.dart';
+import 'package:openlist_flutter/contant/native_bridge.dart';
+import 'package:openlist_flutter/generated_api.dart';
+import 'package:openlist_flutter/pages/settings/preference_widgets.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

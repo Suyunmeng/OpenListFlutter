@@ -1,10 +1,10 @@
-package com.github.jing332.alistflutter.utils
+package com.github.openlistteam.openlistflutter.utils
 
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.ClipboardManager.OnPrimaryClipChangedListener
 import android.content.Context
-import com.github.jing332.alistflutter.app
+import com.github.openlistteam.openlistflutter.app
 
 
 /**

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AList</string>
+    <string name="app_name">OpenList</string>
 
     <string name="open_source_license">开源许可</string>
     <string name="back">返回</string>
@@ -9,29 +9,29 @@
     <string name="ok">确定</string>
     <string name="description">描述</string>
     <string name="log">日志</string>
-    <string name="alist_server">AList服务器</string>
+    <string name="openlist_server">OpenList服务器</string>
     <string name="add_desktop_shortcut">添加桌面快捷方式</string>
     <string name="shutdown">关闭</string>
     <string name="copy_address">复制地址</string>
-    <string name="alist_server_running">AList运行中</string>
+    <string name="openlist_server_running">OpenList运行中</string>
     <string name="cancel">取消</string>
     <string name="admin_password_set_to">admin 密码已设为：\n %1$s</string>
     <string name="admin_password">admin 密码</string>
     <string name="server_shutdown_failed">关闭失败：%1$s</string>
     <string name="address_copied">已复制地址</string>
     <string name="set_admin_pwd_for_not_running">⚠️启动服务器才可设置admin密码</string>
-    <string name="alist_config">AList配置</string>
+    <string name="openlist_config">OpenList配置</string>
     <string name="settings">设置</string>
     <string name="password">密码</string>
-    <string name="alist_starting">启动中</string>
-    <string name="alist_shut_downing">关闭中</string>
+    <string name="openlist_starting">启动中</string>
+    <string name="openlist_shut_downing">关闭中</string>
     <string name="app_switch">开关</string>
     <string name="moreOptions">更多选项</string>
     <string name="about">关于</string>
     <string name="listen_address">监听地址</string>
     <string name="edit_config_json">编辑 config.json</string>
     <string name="no_server_enable_warn_msg">请至少启用一个服务器！</string>
-    <string name="alist_provider">AList提供者</string>
+    <string name="openlist_provider">OpenList提供者</string>
     <string name="provider_root_summary">account</string>
     <string name="path_copied">路径已复制</string>
     <string name="check_update">检查更新</string>
@@ -70,6 +70,6 @@
     <string name="select_downloader">选择下载器</string>
     <string name="last_used">上次使用</string>
     <string name="start_at_boot">开机自启动服务</string>
-    <string name="start_at_boot_desc">在开机时自动开启AList服务。</string>
+    <string name="start_at_boot_desc">在开机时自动开启OpenList服务。</string>
     <string name="shutdown_failed">关闭失败</string>
 </resources>
