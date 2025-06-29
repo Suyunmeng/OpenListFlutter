@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/OpenListTeam/OpenList/v3/alistlib/internal"
+	"github.com/OpenListTeam/OpenList/v3/openlistlib/internal"
 	"github.com/OpenListTeam/OpenList/v3/cmd"
 	"github.com/OpenListTeam/OpenList/v3/cmd/flags"
 	"github.com/OpenListTeam/OpenList/v3/internal/bootstrap"
