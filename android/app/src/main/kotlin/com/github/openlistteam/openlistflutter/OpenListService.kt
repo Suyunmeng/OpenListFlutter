@@ -1,6 +1,6 @@
 package com.github.openlistteam.openlistflutter
 
-import openlistlib.OpenListlib
+import openlistlib.Openlistlib
 import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
@@ -144,7 +144,7 @@ class OpenListService : Service(), OpenList.Listener {
         }
     }
 
-    private fun localAddress(): String = OpenListlib.getOutboundIPString()
+    private fun localAddress(): String = Openlistlib.getOutboundIPString()
 
 
     @Suppress("DEPRECATION")
