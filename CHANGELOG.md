@@ -1,1 +1,1 @@
-[自动同步OpenList] v4.0.7
+[自动同步OpenList] v4.0.8
